@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>AI Resume Analyzer</h2>
+        <form action="/" method="POST" enctype="multipart/form-data" class="animated-form">
+            <label for="job_description">Job Description:</label>
+            <textarea id="job_description" name="job_description" required></textarea>
+
+            <label for="resume">Upload Resume (PDF):</label>
+            <input type="file" id="resume" name="resume" accept=".pdf" required>
+
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+</body>
+</html>

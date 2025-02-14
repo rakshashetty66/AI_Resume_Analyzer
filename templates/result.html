@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Styling for small skill boxes */
+        .skill-box {
+            display: inline-block;
+            background-color: #f8d7da; /* Light red */
+            color: #721c24; /* Dark red */
+            padding: 5px 10px;
+            margin: 4px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Box for the score */
+        .score-box {
+            display: inline-block;
+            background-color: #d4edda; /* Light green */
+            color: #155724; /* Dark green */
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Styling for try again button */
+        .try-again-box {
+            display: inline-block;
+            background-color: #007bff; /* Blue */
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .try-again-box:hover {
+            background-color: #0056b3; /* Darker Blue */
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <!-- Score Box -->
+        <div class="score-box">
+            Your Resume Match Score: <strong>{{ score }}%</strong>
+        </div>
+
+        {% if missing %}
+            <h3>Missing Skills:</h3>
+            <div>
+                {% for skill in missing %}
+                    <span class="skill-box">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+
+        {% else %}
+            <h3>Great! Your resume matches well with the job description. 🎉</h3>
+        {% endif %}
+
+        <!-- Try Again Box -->
+        <div>
+            <a href="/" class="try-again-box">Try Again</a>
+        </div>
+    </div>
+</body>
+</html>
